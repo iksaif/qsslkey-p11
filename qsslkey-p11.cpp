@@ -193,11 +193,8 @@ error:
         ENGINE_free(e);
 }
 
-static void pkcs11_clear(QSslKey & key)
+static void pkcs11_clear()
 {
-    if (!key.isNull()) {
-        EVP_PKEY_free((EVP_PKEY *)key.handle());
-    }
     if (ssl_engine) {
         ENGINE_finish(ssl_engine);
         ENGINE_free(ssl_engine);
@@ -249,8 +246,7 @@ void test(const QString & pkcs11_module = QString(), const QString & keyid = QSt
 
     socket.abort();
 
-    if (!pkcs11_module.isEmpty())
-        pkcs11_clear(key);
+    pkcs11_clear();
 }
 
 int main(int argc, char *argv[])
