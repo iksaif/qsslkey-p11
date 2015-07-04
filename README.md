@@ -1,4 +1,4 @@
-QSslKey using PKCS#11
+# QSslKey using PKCS#11
 
 This example show how to use OpenSSL (http://www.openssl.org) along
 with engine_pkcs11 (http://www.opensc-project.org/engine_pkcs11) to make a QSslSocket
